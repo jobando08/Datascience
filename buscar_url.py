@@ -23,7 +23,6 @@ html TEXT
 )
 ''')
 
-
 urlset = list()
 count = int(input('How many pages would you like to retrieve?: '))
 
