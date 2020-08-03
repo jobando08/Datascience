@@ -42,7 +42,7 @@ while True:
         abrir = urllib.request.urlopen(url, context=contx)
         html = abrir.read()
         if abrir.getcode() == 200:
-            curs.execute('INSERT INTO Busquedas(url, error) VALUES(?,?)', (url, abrir.getcode()))
+            curs.execute('INSERT OR IGNORE INTO Busquedas(url, error) VALUES(?,?)', (url, abrir.getcode()))
         else:
             curs.execute('INSERT INTO Busquedas(url, error) VALUES(?,?,?)', (url, abrir.getcode()))
             continue
