@@ -25,12 +25,13 @@ html TEXT
 
 
 urlset = list()
-count = 0
+count = int(input('How many pages would you like to retrieve?: '))
 
 while True:
     if len(urlset) < 1:
-        url = input('Ingrese una url: ')
+        url = input('Ingrese una url: type d for default url: ')
         if len(url) < 1: break
+        if url == 'd': url = 'https://www.google.com/'
 
     else:
         url = random.choice(urlset)
@@ -73,6 +74,6 @@ while True:
         if href.endswith('.png') or href.endswith('jpg') or href.endswith('gif'): continue
         if href.endswith('/'): href = href[:-1]
         urlset.append(href)
-    count += 1
+    count -= 1
     conectar.commit()
-    if count > 50: break
+    if count < 1: break
